@@ -23,6 +23,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          title: 'Início',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="aulas"
+        options={{
           title: 'Aulas',
           tabBarIcon: ({ color }) => <TabBarIcon name="graduation-cap" color={color} />,
         }}
@@ -32,6 +39,13 @@ export default function TabLayout() {
         options={{
           title: 'Carteira Fria',
           tabBarIcon: ({ color }) => <TabBarIcon name="shield" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="antigolpe"
+        options={{
+          title: 'Anti-Golpe',
+          tabBarIcon: ({ color }) => <TabBarIcon name="exclamation-triangle" color={color} />,
         }}
       />
       <Tabs.Screen

@@ -133,5 +133,86 @@
         "explicacao": "Após comprar, transfira para sua própria carteira. Comece com R$ 20-50 para testar se chegou corretamente, depois transfira o restante."
       }
     ]
+  },
+  {
+    "id": "6",
+    "titulo": "Lightning Network: Bitcoin rápido e barato",
+    "descricao": "Entenda a segunda camada do Bitcoin para pagamentos instantâneos e com taxa quase zero.",
+    "duracao": "12 min",
+    "conteudo": "## Lightning Network: Bitcoin rápido e barato\n\nO Bitcoin é revolucionário, mas tem um problema: a rede principal processa apenas cerca de **7 transações por segundo**. A Visa processa até 24.000. Pagar um cafezinho com taxa de rede e aguardando 10 minutos de confirmação não é prático no dia a dia.\n\nFoi para resolver isso que surgiu a **Lightning Network** — uma segunda camada (Layer 2) construída sobre o Bitcoin.\n\n### Como funciona?\n\nImagine que você frequenta o mesmo café todo dia. Em vez de registrar cada pagamento diretamente na blockchain (lento e caro), você abre um **canal de pagamento** com a cafeteria.\n\nEsse canal é criado com uma única transação on-chain. A partir daí, vocês trocam pagamentos instantâneos entre si sem usar a blockchain a cada vez. Quando quiserem encerrar o canal, uma última transação on-chain registra o saldo final de ambos.\n\nA rede Lightning conecta milhares desses canais, permitindo pagar qualquer pessoa mesmo sem ter canal direto — o pagamento percorre automaticamente nós intermediários.\n\n### Vantagens da Lightning\n\n- **Instantâneo**: pagamentos em milissegundos\n- **Barato**: taxas de frações de centavo\n- **Privado**: transações não ficam expostas na blockchain pública\n- **Ideal para microtransações**: gorjetas, conteúdo digital, jogos\n\n### Limitações\n\n- Ambas as partes precisam estar online para completar o pagamento\n- Canais têm liquidez limitada pelo valor bloqueado\n- Ainda em desenvolvimento ativo — menos robusto que on-chain para grandes valores\n\n### Carteiras Lightning no Brasil\n\n- **Wallet of Satoshi**: a mais simples para iniciantes. Custodial (eles guardam suas chaves).\n- **Muun**: não-custodial, boa interface, suporta Lightning e on-chain.\n- **Phoenix**: avançada, não-custodial, para quem quer controle total.\n\n### Lightning vs On-chain: quando usar?\n\n- **Lightning**: pagamentos pequenos e frequentes — café, gorjeta, streaming de sats\n- **On-chain**: grandes valores, transferências definitivas, saques para carteira fria\n\n> Lightning Network é o dinheiro do cotidiano. Bitcoin on-chain é o seu cofre.",
+    "quiz": [
+      {
+        "pergunta": "Qual problema do Bitcoin on-chain a Lightning Network foi criada para resolver?",
+        "opcoes": ["A descentralização excessiva da rede", "A velocidade lenta e custo alto para transações pequenas e frequentes", "A falta de anonimato total das transações", "A dificuldade de armazenar a seed phrase com segurança"],
+        "correta": 1,
+        "explicacao": "A rede principal do Bitcoin processa ~7 transações por segundo com confirmação em ~10 minutos. A Lightning cria uma segunda camada para transações instantâneas e praticamente gratuitas."
+      },
+      {
+        "pergunta": "Como funciona um canal de pagamento na Lightning Network?",
+        "opcoes": ["Cada pagamento é registrado individualmente na blockchain principal", "Duas partes abrem um canal com uma transação on-chain e transacionam entre si sem usar a blockchain a cada pagamento", "Os bitcoins são convertidos para uma stablecoin durante o processo", "Um servidor central processa e registra as transações em lote"],
+        "correta": 1,
+        "explicacao": "Um canal Lightning abre com uma transação on-chain. Dentro do canal, as partes trocam pagamentos instantâneos sem taxas de rede. Ao fechar, uma transação final registra o saldo definitivo na blockchain."
+      },
+      {
+        "pergunta": "Qual é a principal diferença entre Wallet of Satoshi e Phoenix?",
+        "opcoes": ["Wallet of Satoshi só funciona no iOS, Phoenix só no Android", "Wallet of Satoshi é custodial (eles controlam as chaves), Phoenix é não-custodial (você controla)", "Phoenix é mais antiga e menos segura", "As duas são idênticas, com interfaces diferentes"],
+        "correta": 1,
+        "explicacao": "Wallet of Satoshi é custodial — simples para iniciantes, mas a empresa guarda suas chaves. Phoenix é não-custodial — você controla suas próprias chaves, com mais segurança e responsabilidade."
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "titulo": "Como NÃO ser hackeado: segurança operacional",
+    "descricao": "Boas práticas de OPSEC para proteger seus bitcoins contra ataques digitais.",
+    "duracao": "13 min",
+    "conteudo": "## Como NÃO ser hackeado: segurança operacional\n\nBitcoin não tem estorno e não tem atendimento ao cliente. Se você for hackeado e perder seus bitcoins, acabou — sem recuperação possível. Segurança operacional (OPSEC) não é opcional: é essencial.\n\n### Senhas: a primeira linha de defesa\n\nJamais reutilize senhas. Use um **gerenciador de senhas** como **Bitwarden** (gratuito, código aberto) para gerar e armazenar senhas únicas e complexas para cada conta. Uma senha forte tem pelo menos 16 caracteres com letras, números e símbolos.\n\nSe uma conta for comprometida num vazamento de dados, senhas únicas garantem que as outras permanecem seguras.\n\n### Autenticação de dois fatores: nunca use SMS\n\nSempre ative o 2FA em exchanges e qualquer serviço ligado a cripto. Mas **NUNCA use SMS** como segundo fator — golpistas podem clonar seu chip (golpe do SIM swap) e interceptar todos os seus códigos.\n\nUse aplicativos de autenticação:\n\n- **Aegis** (Android, código aberto — recomendação principal)\n- **Authy** (iOS e Android, com backup em nuvem)\n- **Google Authenticator** (simples, sem backup automático)\n\n### E-mail separado só para cripto\n\nCrie um endereço exclusivo para contas em exchanges e carteiras. Não use em redes sociais, compras online ou outros serviços. Isso reduz drasticamente sua exposição a phishing e vazamentos.\n\n### Não exiba seus investimentos\n\nNão poste prints de saldo, não comente valores em grupos públicos, não celebre ganhos nas redes sociais. Golpistas monitoram essas informações ativamente. O maior risco físico começa com visibilidade digital.\n\n### Extensões de navegador: campo minado\n\nExtensões maliciosas podem capturar tudo que você digita. Use um perfil de navegador separado exclusivamente para cripto, sem extensões instaladas. Nunca instale extensões indicadas por estranhos.\n\n### Como reconhecer phishing\n\n- URL com domínio errado: merc4do-bitcoin.com, ledger-suporte.com\n- E-mail com tom de urgência pedindo para confirmar conta\n- Botões que levam a domínios diferentes do esperado\n- Português ruim ou logotipo levemente diferente\n\nSempre acesse exchanges digitando o endereço manualmente. Nunca clique em links de e-mail, SMS ou WhatsApp.\n\n> Seu comportamento é sua melhor defesa. Tecnologia protege, mas hábitos descuidados abrem todas as brechas.",
+    "quiz": [
+      {
+        "pergunta": "Por que você NUNCA deve usar SMS como segundo fator de autenticação (2FA)?",
+        "opcoes": ["SMS é muito lento para funcionar como 2FA", "Golpistas podem clonar seu chip (SIM swap) e interceptar todos os códigos SMS", "Operadoras cobram taxa adicional pela autenticação via SMS", "SMS 2FA não é aceito pelas principais exchanges brasileiras"],
+        "correta": 1,
+        "explicacao": "No golpe do SIM swap, criminosos convencem a operadora a transferir seu número para um chip deles. Com isso, recebem todos os seus SMS — incluindo códigos de 2FA para acessar suas contas."
+      },
+      {
+        "pergunta": "Qual é a forma correta de gerenciar senhas de contas ligadas a criptoativos?",
+        "opcoes": ["Usar a mesma senha forte em todas as contas para não esquecer", "Anotar num caderno próximo ao computador para acesso rápido", "Usar um gerenciador como Bitwarden para gerar senhas únicas e complexas para cada conta", "Guardar num arquivo de texto com senha no computador"],
+        "correta": 2,
+        "explicacao": "Um gerenciador gera e armazena senhas únicas para cada conta. Se um serviço vazar seus dados, os outros permanecem protegidos. Bitwarden é gratuito e de código aberto."
+      },
+      {
+        "pergunta": "Qual comportamento protege contra phishing em exchanges?",
+        "opcoes": ["Clicar rapidamente em links de e-mail urgentes para resolver logo", "Usar extensões de segurança recomendadas em grupos do Telegram", "Acessar exchanges sempre digitando o endereço direto no navegador, jamais por links", "Responder e-mails de suporte para confirmar identidade quando solicitado"],
+        "correta": 2,
+        "explicacao": "Phishing depende de você clicar no link errado. Digitando o endereço diretamente você garante estar no site real. Adicione suas exchanges nos favoritos do navegador como proteção extra."
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "titulo": "Como declarar Bitcoin no Imposto de Renda",
+    "descricao": "Quando declarar, onde declarar e quando pagar imposto. Tudo que você precisa saber.",
+    "duracao": "14 min",
+    "conteudo": "## Como declarar Bitcoin no Imposto de Renda\n\n> Aviso: Este conteúdo é educacional. Para situações específicas, consulte um contador.\n\nMuitos brasileiros compram Bitcoin sem saber que têm obrigações com a Receita Federal. Ignorar isso pode gerar multas e autuações. Entender as regras básicas é fundamental.\n\n### Quando é obrigatório declarar?\n\nVocê deve declarar criptoativos no IRPF se possuir **mais de R$ 5.000** em qualquer criptomoeda em 31 de dezembro do ano de referência — mesmo sem ter realizado nenhuma venda durante o ano.\n\n### Onde declarar?\n\nNa declaração anual do IRPF, acesse **Bens e Direitos** e use o **código 81 — Criptoativos** (criado pela Receita Federal em 2022). Informe a quantidade em BTC, o custo médio de aquisição em reais e onde está custodiado (exchange ou carteira própria).\n\n### Quando você paga imposto de fato?\n\nO imposto incide sobre o **lucro das vendas**, não sobre o patrimônio mantido. E há uma isenção importante: vendas mensais de até **R$ 35.000** em criptoativos são isentas de imposto sobre o lucro.\n\nQuando as vendas mensais ultrapassam R$ 35.000, o lucro é tributado com alíquota progressiva:\n\n- **15%** sobre ganhos até R$ 5.000.000\n- **17,5%** entre R$ 5.000.001 e R$ 10.000.000\n- **20%** entre R$ 10.000.001 e R$ 30.000.000\n- **22,5%** acima de R$ 30.000.000\n\nO imposto deve ser pago até o último dia útil do mês seguinte à venda, via DARF.\n\n### Ferramentas para ajudar\n\n- **Koinly**: importa histórico de exchanges e gera relatório compatível com a Receita Federal.\n- **CoinTracker**: similar, com suporte a exchanges brasileiras.\n- **Declaração manual**: viável para quem tem poucas transações anuais.\n\n### Cuidados importantes\n\n- Guarde todos os comprovantes de compra e venda\n- Troca entre criptomoedas (BTC por outra cripto) pode ser evento tributável\n- Perdas realizadas podem compensar lucros futuros\n- Vendas acima de R$ 35.000/mês exigem GCAP e DARF no mês seguinte\n\n> Para valores relevantes ou situações complexas, um contador especializado em criptoativos vale cada centavo do honorário.",
+    "quiz": [
+      {
+        "pergunta": "A partir de qual valor em criptoativos você é obrigado a declarar no IRPF?",
+        "opcoes": ["Qualquer valor, mesmo R$ 1", "R$ 1.000", "R$ 5.000", "R$ 35.000"],
+        "correta": 2,
+        "explicacao": "Se você possuir mais de R$ 5.000 em criptoativos em 31 de dezembro do ano de referência, é obrigatório declarar — mesmo sem ter feito nenhuma venda durante o ano."
+      },
+      {
+        "pergunta": "Onde devem ser declarados seus bitcoins na declaração anual do IRPF?",
+        "opcoes": ["Rendimentos Tributáveis, como salário e aluguel", "Rendimentos Isentos e Não Tributáveis", "Bens e Direitos, código 81 — Criptoativos", "Dívidas e Ônus Reais"],
+        "correta": 2,
+        "explicacao": "A Receita Federal criou o código 81 — Criptoativos na seção Bens e Direitos especificamente para declarar Bitcoin e demais criptomoedas."
+      },
+      {
+        "pergunta": "Até qual limite de vendas mensais de criptoativos você é isento de imposto sobre o lucro?",
+        "opcoes": ["R$ 5.000 por mês", "R$ 35.000 por mês", "R$ 100.000 por mês", "Toda venda é tributada, sem isenção"],
+        "correta": 1,
+        "explicacao": "Vendas mensais de até R$ 35.000 em criptoativos são isentas de imposto sobre o lucro. Acima desse valor aplica-se alíquota progressiva de 15% a 22,5% sobre o ganho."
+      }
+    ]
   }
 ]
