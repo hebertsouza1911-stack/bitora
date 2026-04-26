@@ -10,13 +10,24 @@ type Props = {
 
 export default function AulaCard({ titulo, descricao, duracao, concluida = false, onPress }: Props) {
   return (
-    <TouchableOpacity style={[styles.card, concluida && styles.cardConcluida]} onPress={onPress} activeOpacity={0.8}>
+    <TouchableOpacity
+      style={[styles.card, concluida && styles.cardConcluida]}
+      onPress={onPress}
+      activeOpacity={0.8}
+    >
       <View style={styles.header}>
-        <Text style={styles.titulo}>{titulo}</Text>
-        {concluida && <Text style={styles.badge}>✓</Text>}
+        <Text style={styles.titulo} numberOfLines={2}>{titulo}</Text>
+        {concluida && (
+          <View style={styles.checkBadge}>
+            <Text style={styles.checkTexto}>✓</Text>
+          </View>
+        )}
       </View>
-      <Text style={styles.descricao}>{descricao}</Text>
-      <Text style={styles.duracao}>{duracao}</Text>
+      <Text style={styles.descricao} numberOfLines={2}>{descricao}</Text>
+      <View style={styles.footer}>
+        <Text style={styles.duracao}>⏱ {duracao}</Text>
+        {concluida && <Text style={styles.concluidaLabel}>Concluída</Text>}
+      </View>
     </TouchableOpacity>
   );
 }
@@ -32,34 +43,56 @@ const styles = StyleSheet.create({
   },
   cardConcluida: {
     borderLeftColor: '#4CAF50',
-    opacity: 0.85,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 6,
+    gap: 10,
   },
   titulo: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '700',
     color: '#FFFFFF',
     flex: 1,
+    lineHeight: 22,
   },
-  badge: {
-    fontSize: 18,
-    color: '#4CAF50',
-    fontWeight: '700',
-    marginLeft: 8,
+  checkBadge: {
+    backgroundColor: '#4CAF50',
+    borderRadius: 14,
+    width: 26,
+    height: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+  },
+  checkTexto: {
+    fontSize: 13,
+    color: '#FFFFFF',
+    fontWeight: '800',
   },
   descricao: {
-    fontSize: 14,
-    color: '#B0B0C0',
-    marginBottom: 8,
+    fontSize: 13,
+    color: '#A0A0B8',
+    marginBottom: 10,
+    lineHeight: 19,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   duracao: {
     fontSize: 12,
     color: '#F7931A',
     fontWeight: '600',
+  },
+  concluidaLabel: {
+    fontSize: 11,
+    color: '#4CAF50',
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
 });

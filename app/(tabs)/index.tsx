@@ -1,5 +1,5 @@
-import { useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useFocusEffect, useRouter } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import AulaCard from '@/components/AulaCard';
@@ -18,16 +18,18 @@ export default function AulasScreen() {
   const router = useRouter();
   const [concluidas, setConcluidas] = useState<string[]>([]);
 
-  useEffect(() => {
-    buscarConcluidas().then(setConcluidas);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      buscarConcluidas().then(setConcluidas);
+    }, [])
+  );
 
   const aulas: Aula[] = aulasData;
 
   return (
     <View style={styles.container}>
       <Text style={styles.subtitulo}>
-        {aulas.length} aula{aulas.length !== 1 ? 's' : ''} disponível{aulas.length !== 1 ? 'is' : ''}
+        {aulas.length} aula{aulas.length !== 1 ? 's' : ''} disponíveis
       </Text>
       <FlatList
         data={aulas}

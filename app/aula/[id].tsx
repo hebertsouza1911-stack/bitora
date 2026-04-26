@@ -1,4 +1,4 @@
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -72,6 +72,7 @@ function renderConteudo(conteudo: string) {
 export default function AulaDetalheScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const navigation = useNavigation();
+  const router = useRouter();
   const [concluida, setConcluida] = useState(false);
 
   const aula = (aulasData as Aula[]).find((a) => a.id === id);
@@ -103,8 +104,14 @@ export default function AulaDetalheScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.conteudo}>
       <View style={styles.meta}>
-        <Text style={styles.duracao}>{aula.duracao}</Text>
-        {concluida && <Text style={styles.badgeConcluida}>✓ Concluída</Text>}
+        <View style={styles.tempoTag}>
+          <Text style={styles.tempoTexto}>⏱ {aula.duracao} de leitura</Text>
+        </View>
+        {concluida && (
+          <View style={styles.concluidaTag}>
+            <Text style={styles.concluidaTagTexto}>✓ Concluída</Text>
+          </View>
+        )}
       </View>
 
       {renderConteudo(aula.conteudo)}
@@ -120,6 +127,10 @@ export default function AulaDetalheScreen() {
           <Text style={styles.botaoTexto}>Marcar como concluída</Text>
         </TouchableOpacity>
       )}
+
+      <TouchableOpacity style={styles.botaoVoltar} onPress={() => router.back()} activeOpacity={0.7}>
+        <Text style={styles.botaoVoltarTexto}>← Voltar à lista de aulas</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -244,5 +255,41 @@ const styles = StyleSheet.create({
   erroTexto: {
     color: '#888',
     fontSize: 16,
+  },
+  tempoTag: {
+    backgroundColor: '#1A1A2E',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: '#F7931A',
+  },
+  tempoTexto: {
+    fontSize: 12,
+    color: '#F7931A',
+    fontWeight: '600',
+  },
+  concluidaTag: {
+    backgroundColor: '#0D2010',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+  },
+  concluidaTagTexto: {
+    fontSize: 12,
+    color: '#4CAF50',
+    fontWeight: '700',
+  },
+  botaoVoltar: {
+    marginTop: 24,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  botaoVoltarTexto: {
+    fontSize: 14,
+    color: '#888',
+    fontWeight: '600',
   },
 });
