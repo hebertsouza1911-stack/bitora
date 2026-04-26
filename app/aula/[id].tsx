@@ -2,8 +2,9 @@ import { useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import Quiz, { Pergunta } from '@/components/Quiz';
 import aulasData from '@/content/aulas.json';
-import { aulaConcluida, salvarProgresso } from '@/lib/storage';
+import { isAulaConcluida, marcarAulaConcluida } from '@/lib/storage';
 
 type Aula = {
   id: string;
@@ -11,11 +12,11 @@ type Aula = {
   descricao: string;
   duracao: string;
   conteudo: string;
+  quiz?: Pergunta[];
 };
 
 function renderConteudo(conteudo: string) {
-  const linhas = conteudo.split('\n');
-  return linhas.map((linha, i) => {
+  return conteudo.split('\n').map((linha, i) => {
     if (linha.startsWith('## ')) {
       return <Text key={i} style={styles.h2}>{linha.slice(3)}</Text>;
     }
@@ -42,6 +43,14 @@ function renderConteudo(conteudo: string) {
           </View>
         );
       }
+    }
+    if (linha.startsWith('- ')) {
+      return (
+        <View key={i} style={styles.liItem}>
+          <Text style={styles.liPonto}>•</Text>
+          <Text style={styles.liTexto}>{linha.slice(2)}</Text>
+        </View>
+      );
     }
     if (linha.trim() === '') {
       return <View key={i} style={styles.espaco} />;
@@ -70,7 +79,7 @@ export default function AulaDetalheScreen() {
   useEffect(() => {
     if (aula) {
       navigation.setOptions({ title: aula.titulo });
-      aulaConcluida(aula.id).then(setConcluida);
+      isAulaConcluida(aula.id).then(setConcluida);
     }
   }, [aula]);
 
@@ -82,9 +91,13 @@ export default function AulaDetalheScreen() {
     );
   }
 
-  async function marcarConcluida() {
-    await salvarProgresso(aula!.id);
+  async function handleMarcarConcluida() {
+    await marcarAulaConcluida(aula!.id);
     setConcluida(true);
+  }
+
+  function handleQuizConcluido(acertos: number) {
+    if (acertos >= 2) handleMarcarConcluida();
   }
 
   return (
@@ -96,8 +109,14 @@ export default function AulaDetalheScreen() {
 
       {renderConteudo(aula.conteudo)}
 
-      {!concluida && (
-        <TouchableOpacity style={styles.botao} onPress={marcarConcluida} activeOpacity={0.85}>
+      {concluida ? (
+        <View style={styles.concluidaBox}>
+          <Text style={styles.concluidaTexto}>Você já concluiu esta aula. Bom trabalho!</Text>
+        </View>
+      ) : aula.quiz && aula.quiz.length > 0 ? (
+        <Quiz perguntas={aula.quiz} onConcluir={handleQuizConcluido} />
+      ) : (
+        <TouchableOpacity style={styles.botao} onPress={handleMarcarConcluida} activeOpacity={0.85}>
           <Text style={styles.botaoTexto}>Marcar como concluída</Text>
         </TouchableOpacity>
       )}
@@ -112,7 +131,7 @@ const styles = StyleSheet.create({
   },
   conteudo: {
     padding: 20,
-    paddingBottom: 48,
+    paddingBottom: 56,
   },
   meta: {
     flexDirection: 'row',
@@ -178,7 +197,7 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     backgroundColor: '#1A1A2E',
     borderRadius: 4,
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingRight: 8,
   },
   blockquoteTexto: {
@@ -201,6 +220,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: '#000000',
+  },
+  concluidaBox: {
+    marginTop: 32,
+    backgroundColor: '#0D2010',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#4CAF50',
+    alignItems: 'center',
+  },
+  concluidaTexto: {
+    fontSize: 14,
+    color: '#4CAF50',
+    fontWeight: '600',
   },
   erro: {
     flex: 1,

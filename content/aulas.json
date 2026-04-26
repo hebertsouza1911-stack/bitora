@@ -2,8 +2,136 @@
   {
     "id": "1",
     "titulo": "O que é Bitcoin",
-    "descricao": "Introdução ao Bitcoin e como ele funciona.",
+    "descricao": "Introdução ao Bitcoin: o que é, como surgiu e por que importa.",
     "duracao": "10 min",
-    "conteudo": "## O que é Bitcoin?\n\nBitcoin (BTC) é uma moeda digital descentralizada criada em 2009 por uma pessoa (ou grupo) usando o pseudônimo **Satoshi Nakamoto**.\n\n### Como funciona?\n\nAo contrário das moedas tradicionais emitidas por governos e bancos centrais, o Bitcoin opera em uma rede ponto a ponto (peer-to-peer) sem nenhuma autoridade central.\n\n### Características principais\n\n- **Descentralizado**: Nenhum governo ou banco controla o Bitcoin.\n- **Escasso**: Existe um limite máximo de 21 milhões de bitcoins que jamais existirão.\n- **Transparente**: Todas as transações são registradas na blockchain, um livro-razão público.\n- **Imutável**: Após confirmadas, as transações não podem ser alteradas ou revertidas.\n- **Pseudônimo**: Os usuários são identificados por endereços, não por nomes reais.\n\n### O que é Blockchain?\n\nA blockchain é a tecnologia por trás do Bitcoin. É uma cadeia de blocos onde cada bloco contém um conjunto de transações validadas. Esses blocos são encadeados de forma criptográfica, tornando extremamente difícil alterar qualquer registro histórico.\n\n### Por que Bitcoin é importante?\n\nO Bitcoin representa a primeira solução ao **problema do duplo gasto** em dinheiro digital sem precisar de um intermediário confiável. Ele permite que pessoas enviem valor diretamente umas às outras em qualquer lugar do mundo, sem fronteiras e com taxas muito menores do que as transferências bancárias internacionais.\n\n### Resumo\n\n> Bitcoin é dinheiro para a internet: sem fronteiras, sem censura, sem permissão necessária."
+    "conteudo": "## O que é Bitcoin?\n\nBitcoin (BTC) é uma moeda digital descentralizada criada em 2009 por uma pessoa (ou grupo) usando o pseudônimo **Satoshi Nakamoto**.\n\n### Como funciona?\n\nAo contrário das moedas tradicionais emitidas por governos e bancos centrais, o Bitcoin opera em uma rede ponto a ponto (peer-to-peer) sem nenhuma autoridade central.\n\n### Características principais\n\n- **Descentralizado**: Nenhum governo ou banco controla o Bitcoin.\n- **Escasso**: Existe um limite máximo de 21 milhões de bitcoins que jamais existirão.\n- **Transparente**: Todas as transações são registradas na blockchain, um livro-razão público.\n- **Imutável**: Após confirmadas, as transações não podem ser alteradas ou revertidas.\n- **Pseudônimo**: Os usuários são identificados por endereços, não por nomes reais.\n\n### O que é Blockchain?\n\nA blockchain é a tecnologia por trás do Bitcoin. É uma cadeia de blocos onde cada bloco contém um conjunto de transações validadas. Esses blocos são encadeados de forma criptográfica, tornando extremamente difícil alterar qualquer registro histórico.\n\n### Por que Bitcoin é importante?\n\nO Bitcoin representa a primeira solução ao **problema do duplo gasto** em dinheiro digital sem precisar de um intermediário confiável. Ele permite que pessoas enviem valor diretamente umas às outras em qualquer lugar do mundo, sem fronteiras e com taxas muito menores do que as transferências bancárias internacionais.\n\n### Resumo\n\n> Bitcoin é dinheiro para a internet: sem fronteiras, sem censura, sem permissão necessária.",
+    "quiz": [
+      {
+        "pergunta": "Quem criou o Bitcoin?",
+        "opcoes": ["Elon Musk", "Satoshi Nakamoto", "Vitalik Buterin", "Bill Gates"],
+        "correta": 1,
+        "explicacao": "Bitcoin foi criado por uma pessoa ou grupo usando o pseudônimo Satoshi Nakamoto, em 2009. A identidade real é desconhecida até hoje."
+      },
+      {
+        "pergunta": "Qual é o limite máximo de bitcoins que jamais existirão?",
+        "opcoes": ["10 milhões", "21 milhões", "100 milhões", "Ilimitado"],
+        "correta": 1,
+        "explicacao": "O código do Bitcoin define um teto de 21 milhões de unidades. Essa escassez programada é um dos pilares do valor do Bitcoin."
+      },
+      {
+        "pergunta": "Qual característica torna o Bitcoin diferente das moedas tradicionais?",
+        "opcoes": ["É emitido por governos", "É controlado por bancos centrais", "É descentralizado, sem autoridade central", "Tem valor garantido pelo ouro"],
+        "correta": 2,
+        "explicacao": "O Bitcoin é descentralizado: nenhum governo, banco ou empresa controla sua emissão. Ele opera em uma rede peer-to-peer sem intermediários."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "titulo": "Como funciona a Blockchain",
+    "descricao": "Entenda o livro-razão público que sustenta o Bitcoin.",
+    "duracao": "12 min",
+    "conteudo": "## Como funciona a Blockchain?\n\nImagine um caderno gigante compartilhado por milhares de pessoas ao redor do mundo. Toda vez que alguém envia Bitcoin a outra pessoa, essa transação é anotada nesse caderno. Ninguém é o dono: todo mundo tem uma cópia idêntica e qualquer pessoa pode verificar.\n\nEssa é a essência da **blockchain** (cadeia de blocos).\n\n### O que é um bloco?\n\nUm bloco é como uma página desse caderno compartilhado. Cada bloco contém:\n\n- **Transações**: lista de quem enviou Bitcoin para quem e quanto.\n- **Hash**: uma impressão digital única daquele bloco, gerada por criptografia.\n- **Hash do bloco anterior**: o elo que liga esse bloco ao anterior, formando a cadeia.\n\nSe alguém tentar alterar uma transação antiga, o hash muda e quebra todos os blocos seguintes — a rede inteira percebe imediatamente.\n\n### O que é mineração?\n\nPara adicionar um novo bloco à blockchain, alguém precisa realizar um trabalho matemático muito difícil. Esse processo se chama **mineração**.\n\nMineradores são computadores potentes que competem para resolver esse problema. O primeiro a resolver ganha o direito de adicionar o próximo bloco e recebe novos bitcoins como recompensa — a chamada **recompensa de bloco**.\n\nEsse mecanismo existe por um motivo importante: torna extremamente caro tentar fraudar a rede. Para alterar um registro antigo, você precisaria refazer o trabalho de todos os blocos seguintes mais rápido que o resto da rede — impossível na prática.\n\n### Por que isso é revolucionário?\n\nAntes do Bitcoin, transações digitais precisavam de um intermediário confiável — um banco ou empresa — para garantir sua validade. A blockchain eliminou essa necessidade: **a própria rede descentralizada garante que tudo é legítimo**.\n\nNão existe servidor central. Nenhuma empresa pode desligar o Bitcoin. Ninguém pode gastar o mesmo bitcoin duas vezes.\n\n> A blockchain é como um caderno público e permanente — escrito por milhares de pessoas que nunca precisaram confiar umas nas outras.",
+    "quiz": [
+      {
+        "pergunta": "O que é um bloco na blockchain?",
+        "opcoes": ["Um banco de dados privado de uma empresa", "Um conjunto de transações validadas encadeadas criptograficamente", "Uma criptomoeda diferente do Bitcoin", "Um servidor central que processa pagamentos"],
+        "correta": 1,
+        "explicacao": "Cada bloco contém um conjunto de transações validadas, um hash único e o hash do bloco anterior — formando a cadeia imutável."
+      },
+      {
+        "pergunta": "O que os mineradores de Bitcoin fazem?",
+        "opcoes": ["Imprimem bitcoins físicos em gráficas", "Resolvem problemas matemáticos difíceis para validar transações e ganhar recompensa", "Guardam bitcoins em cofres físicos seguros", "Criam novas criptomoedas concorrentes"],
+        "correta": 1,
+        "explicacao": "Mineradores são computadores que competem resolvendo um problema matemático difícil. O vencedor adiciona o próximo bloco e recebe novos bitcoins como recompensa."
+      },
+      {
+        "pergunta": "Por que é quase impossível fraudar a blockchain do Bitcoin?",
+        "opcoes": ["Porque ela é gerenciada por um banco central poderoso", "Porque os blocos são encadeados criptograficamente e qualquer alteração invalida toda a cadeia seguinte", "Porque as transações são completamente secretas e invisíveis", "Porque existe uma empresa de segurança monitorando 24h"],
+        "correta": 1,
+        "explicacao": "Alterar um bloco antigo mudaria seu hash, quebrando todos os blocos seguintes. O fraudador precisaria refazer todo o trabalho matemático — impossível enquanto a rede cresce."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "titulo": "Carteira Quente vs Carteira Fria",
+    "descricao": "Aprenda a diferença e quando usar cada tipo de carteira Bitcoin.",
+    "duracao": "11 min",
+    "conteudo": "## Carteira Quente vs Carteira Fria\n\nUm erro comum de iniciantes é imaginar que o Bitcoin fica guardado dentro da carteira. Na realidade, o que a carteira guarda são as **chaves privadas** — os códigos que provam que você é o dono dos bitcoins registrados na blockchain.\n\nExistem dois grandes tipos de carteiras: **quentes** e **frias**.\n\n### Carteira Quente (Hot Wallet)\n\nUma carteira quente está **conectada à internet**. É prática para o dia a dia, como ter dinheiro em espécie na carteira física.\n\n**Exemplos populares:**\n\n- **BlueWallet**: gratuita, código aberto, excelente para iniciantes.\n- **Muun**: interface simples, suporta Lightning Network.\n- **Phoenix**: mais avançada, foco em Lightning.\n\n**Vantagens**: fácil de usar, acesso rápido, ideal para valores menores.\n\n**Riscos**: por estar online, pode ser vulnerável a hackers, vírus e golpes de phishing.\n\n### Carteira Fria (Cold Wallet)\n\nUma carteira fria está **completamente offline**. É o equivalente a um cofre para seus bitcoins.\n\n**Exemplos populares:**\n\n- **Ledger Nano S Plus**: hardware wallet confiável com tela física para confirmar transações.\n- **Trezor Safe 3**: código aberto, reputação sólida, excelente suporte.\n\n**Vantagens**: proteção máxima contra ataques remotos. Mesmo com vírus no computador, seus bitcoins estão seguros.\n\n**Riscos**: se perder o dispositivo sem backup da seed phrase, perde o acesso permanentemente. Jamais compre de revendedores não oficiais.\n\n### Quando usar cada uma?\n\n- **Carteira quente**: para valores do dia a dia — pequenas quantias e pagamentos frequentes.\n- **Carteira fria**: para economias e investimentos de longo prazo.\n\n### A regra de ouro\n\n> Não deixe na exchange. Não guarde tudo na carteira quente. Valores que importam pertencem à carteira fria.",
+    "quiz": [
+      {
+        "pergunta": "Qual é a principal diferença entre carteira quente e carteira fria?",
+        "opcoes": ["A cor e o design do dispositivo", "A conexão com a internet — quente está online, fria fica offline", "O valor máximo que cada uma pode armazenar", "O fabricante e a marca do produto"],
+        "correta": 1,
+        "explicacao": "Carteira quente está conectada à internet (conveniente, mas com riscos). Carteira fria fica offline (máxima segurança, menos conveniência)."
+      },
+      {
+        "pergunta": "Qual das opções abaixo é um exemplo de carteira fria (cold wallet)?",
+        "opcoes": ["BlueWallet no celular", "Muun instalado no smartphone", "Ledger Nano S Plus", "Aplicativo do banco"],
+        "correta": 2,
+        "explicacao": "O Ledger Nano S Plus é um hardware wallet — dispositivo físico que mantém suas chaves privadas completamente offline."
+      },
+      {
+        "pergunta": "Para qual situação a carteira fria é mais indicada?",
+        "opcoes": ["Pagar cafezinho via Lightning Network", "Pequenas compras do dia a dia", "Guardar grandes quantias por longo prazo", "Especulação e trading diário"],
+        "correta": 2,
+        "explicacao": "A carteira fria é ideal para economias e investimentos de longo prazo — valores que você não precisa acessar com frequência merecem proteção máxima."
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "titulo": "A Seed Phrase: sua chave mestra",
+    "descricao": "O que é, como guardar e os erros que podem custar tudo.",
+    "duracao": "13 min",
+    "conteudo": "## A Seed Phrase: sua chave mestra\n\nQuando você cria uma carteira Bitcoin, o aplicativo gera automaticamente uma lista de **12 ou 24 palavras** em inglês. Essa é a sua **seed phrase** (frase semente), também chamada de frase de recuperação.\n\nEssa sequência é capaz de **restaurar completamente a sua carteira** em qualquer dispositivo compatível — não importa se seu celular quebrou, foi roubado ou você trocou de aparelho.\n\n### Por que ela é tão crítica?\n\nA seed phrase não é apenas um backup: ela **é a sua carteira**. Quem tiver essas palavras tem acesso imediato e irrevogável a todos os seus bitcoins.\n\nIsso implica duas regras absolutas:\n\n- **Nunca perca sua seed phrase** — sem ela, sem acesso, sem recuperação possível.\n- **Nunca compartilhe com ninguém** — quem tiver as palavras pode roubar tudo em segundos.\n\n### O que NUNCA fazer com sua seed phrase\n\n- **Fotografar**: fotos sincronizam automaticamente para a nuvem (Google Photos, iCloud).\n- **Digitar no celular ou computador**: aparelhos podem ter vírus ou keyloggers capturando tudo.\n- **Salvar em e-mail, WhatsApp ou qualquer serviço online**: um vazamento de dados expõe tudo.\n- **Compartilhar com suporte técnico**: nenhum suporte legítimo pede sua seed. É sempre golpe, sem exceção.\n\n### Como guardar corretamente\n\n- **Papel**: anote à mão em papel de qualidade. Guarde longe de umidade e fogo.\n- **Backup secundário**: faça uma segunda cópia em local físico diferente — casa de familiar de confiança ou cofre.\n- **Plaquinha de metal**: produtos como **Stackbit** ou **Cryptosteel** gravam as palavras em aço inoxidável, resistente a fogo e enchentes.\n\n### Erros fatais mais comuns\n\n- Guardar em apenas um lugar físico (incêndio ou enchente destroem tudo)\n- Confiar só na memória\n- Qualquer cópia digital, mesmo que pareça segura\n- Compartilhar com terceiros por qualquer motivo\n\n> Sua seed phrase é a chave-mestra do seu cofre financeiro. Trate-a com o mesmo cuidado que sua aposentadoria inteira.",
+    "quiz": [
+      {
+        "pergunta": "O que é uma seed phrase?",
+        "opcoes": ["A senha de login da sua exchange", "Um código PIN de 6 dígitos para o aplicativo", "Uma sequência de 12 ou 24 palavras que restaura completamente sua carteira", "O endereço público para receber Bitcoin"],
+        "correta": 2,
+        "explicacao": "A seed phrase é a chave-mestra da sua carteira. Com ela é possível restaurar todo o saldo em qualquer dispositivo compatível — independente do que aconteça com o original."
+      },
+      {
+        "pergunta": "Alguém online afirma ser suporte técnico da sua carteira e pede sua seed phrase. O que fazer?",
+        "opcoes": ["Enviar rapidamente para resolver o problema", "Nunca compartilhar — nenhum suporte legítimo pedirá sua seed phrase, é sempre golpe", "Compartilhar apenas as primeiras 6 palavras como teste", "Enviar por e-mail criptografado para mais segurança"],
+        "correta": 1,
+        "explicacao": "Nenhum suporte técnico legítimo jamais pedirá sua seed phrase. Qualquer pedido dessa natureza é 100% golpe — ignore e bloqueie."
+      },
+      {
+        "pergunta": "Qual é a forma mais segura de guardar sua seed phrase?",
+        "opcoes": ["Foto no celular com backup automático na nuvem", "Arquivo de texto no computador com senha", "Anotada à mão em papel ou gravada em plaquinha de metal, completamente offline", "Enviada para si mesmo por e-mail"],
+        "correta": 2,
+        "explicacao": "A seed deve ficar 100% offline: anotada em papel resistente ou gravada em metal inoxidável. Qualquer cópia digital é um risco inaceitável."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "titulo": "Como comprar seu primeiro Bitcoin no Brasil",
+    "descricao": "Exchanges nacionais, KYC, taxas e como sacar para sua própria carteira.",
+    "duracao": "14 min",
+    "conteudo": "## Como comprar seu primeiro Bitcoin no Brasil\n\nComprar Bitcoin no Brasil é mais simples do que parece. Existem exchanges (corretoras) nacionais regulamentadas que aceitam Pix, têm suporte em português e seguem as normas do Banco Central.\n\n### Escolhendo a exchange\n\nAs principais opções no Brasil:\n\n- **Mercado Bitcoin**: a maior do país, fundada em 2011. Regulamentada pelo Banco Central. Boa para iniciantes.\n- **Foxbit**: uma das mais antigas, reconhecida pela confiabilidade e simplicidade.\n- **Bitpreço**: foco em taxas competitivas e boa experiência do usuário.\n\nTodas exigem cadastro e verificação de identidade (KYC).\n\n### O que é KYC?\n\n**KYC** (Know Your Customer — Conheça seu Cliente) é o processo de verificação de identidade exigido por lei para exchanges regulamentadas. Você vai precisar de:\n\n- Foto do documento (RG ou CNH)\n- Selfie segurando o documento\n- Comprovante de residência\n\nO processo leva de minutos a algumas horas. É padrão e necessário — exchanges sem KYC são sinal de alerta.\n\n### Como comprar na prática\n\n- Crie a conta e complete o KYC\n- Deposite reais via **Pix** (instantâneo) ou TED\n- Vá em Comprar Bitcoin e informe o valor em reais\n- Confirme a compra — o saldo aparece na sua conta\n\n### Taxas: o que esperar\n\nA maioria das exchanges cobra entre 0,5% e 1,5% por operação. Compare antes de escolher. Taxas de saque para carteira própria variam.\n\n### O passo mais importante: saque seus bitcoins\n\nDeixar seus bitcoins na exchange após a compra é o maior erro do iniciante. Na exchange, a seed phrase é deles — não sua. Se a corretora falir, for hackeada ou bloquear saques (já aconteceu!), você pode perder tudo.\n\n> Não são suas chaves, não são seus bitcoins — princípio fundamental da comunidade Bitcoin\n\nApós comprar, transfira para sua própria carteira. Primeiro teste com R$ 20 a R$ 50: envie, confirme que chegou, depois transfira o restante.\n\n### Resumo\n\n- Escolha exchange regulamentada e complete o KYC\n- Deposite via Pix e compre seus primeiros satoshis\n- Saque imediatamente para sua carteira pessoal",
+    "quiz": [
+      {
+        "pergunta": "O que é KYC em uma exchange de Bitcoin?",
+        "opcoes": ["Uma taxa cobrada por cada saque realizado", "Uma criptomoeda estável atrelada ao dólar", "O processo de verificação de identidade exigido por lei nas exchanges regulamentadas", "Um tipo especial de carteira digital para iniciantes"],
+        "correta": 2,
+        "explicacao": "KYC (Know Your Customer) é a verificação de identidade obrigatória por lei — inclui envio de documento, selfie e comprovante de residência."
+      },
+      {
+        "pergunta": "Por que não é recomendado deixar seus bitcoins na exchange?",
+        "opcoes": ["As exchanges cobram taxa de custódia diária alta", "Você não controla as chaves privadas — a exchange controla. Se ela falhar, você pode perder tudo", "O Bitcoin some automaticamente após 30 dias parado na exchange", "Exchanges brasileiras não aceitam Pix como depósito"],
+        "correta": 1,
+        "explicacao": "Na exchange, a seed phrase é deles, não sua. Se a corretora falir, for hackeada ou bloquear saques, você perde. Exchanges já faliram mundo afora."
+      },
+      {
+        "pergunta": "Qual é o procedimento correto logo após comprar Bitcoin em uma exchange?",
+        "opcoes": ["Deixar na exchange para facilitar a venda futura", "Converter para reais imediatamente para garantir o lucro", "Sacar para sua própria carteira pessoal — começa com valor pequeno para testar", "Compartilhar os dados da conta com alguém de confiança"],
+        "correta": 2,
+        "explicacao": "Após comprar, transfira para sua própria carteira. Comece com R$ 20-50 para testar se chegou corretamente, depois transfira o restante."
+      }
+    ]
   }
 ]
