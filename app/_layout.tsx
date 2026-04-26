@@ -52,6 +52,15 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="aula/[id]"
+          options={{
+            headerStyle: { backgroundColor: '#0D0D1A' },
+            headerTintColor: '#F7931A',
+            headerTitleStyle: { color: '#FFFFFF', fontWeight: '700' },
+            title: 'Aula',
+          }}
+        />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>

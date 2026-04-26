@@ -1,14 +1,48 @@
-import { StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import AulaCard from '@/components/AulaCard';
+import aulasData from '@/content/aulas.json';
+import { buscarConcluidas } from '@/lib/storage';
 
-export default function TabOneScreen() {
+type Aula = {
+  id: string;
+  titulo: string;
+  descricao: string;
+  duracao: string;
+  conteudo: string;
+};
+
+export default function AulasScreen() {
+  const router = useRouter();
+  const [concluidas, setConcluidas] = useState<string[]>([]);
+
+  useEffect(() => {
+    buscarConcluidas().then(setConcluidas);
+  }, []);
+
+  const aulas: Aula[] = aulasData;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text style={styles.subtitulo}>
+        {aulas.length} aula{aulas.length !== 1 ? 's' : ''} disponível{aulas.length !== 1 ? 'is' : ''}
+      </Text>
+      <FlatList
+        data={aulas}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.lista}
+        renderItem={({ item }) => (
+          <AulaCard
+            titulo={item.titulo}
+            descricao={item.descricao}
+            duracao={item.duracao}
+            concluida={concluidas.includes(item.id)}
+            onPress={() => router.push(`/aula/${item.id}`)}
+          />
+        )}
+      />
     </View>
   );
 }
@@ -16,16 +50,16 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#0D0D1A',
+    paddingHorizontal: 16,
+    paddingTop: 16,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  subtitulo: {
+    color: '#888',
+    fontSize: 13,
+    marginBottom: 16,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  lista: {
+    paddingBottom: 24,
   },
 });

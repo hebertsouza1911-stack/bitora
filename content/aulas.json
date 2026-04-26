@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "titulo": "O que é Bitcoin",
+    "descricao": "Introdução ao Bitcoin e como ele funciona.",
+    "duracao": "10 min",
+    "conteudo": "## O que é Bitcoin?\n\nBitcoin (BTC) é uma moeda digital descentralizada criada em 2009 por uma pessoa (ou grupo) usando o pseudônimo **Satoshi Nakamoto**.\n\n### Como funciona?\n\nAo contrário das moedas tradicionais emitidas por governos e bancos centrais, o Bitcoin opera em uma rede ponto a ponto (peer-to-peer) sem nenhuma autoridade central.\n\n### Características principais\n\n- **Descentralizado**: Nenhum governo ou banco controla o Bitcoin.\n- **Escasso**: Existe um limite máximo de 21 milhões de bitcoins que jamais existirão.\n- **Transparente**: Todas as transações são registradas na blockchain, um livro-razão público.\n- **Imutável**: Após confirmadas, as transações não podem ser alteradas ou revertidas.\n- **Pseudônimo**: Os usuários são identificados por endereços, não por nomes reais.\n\n### O que é Blockchain?\n\nA blockchain é a tecnologia por trás do Bitcoin. É uma cadeia de blocos onde cada bloco contém um conjunto de transações validadas. Esses blocos são encadeados de forma criptográfica, tornando extremamente difícil alterar qualquer registro histórico.\n\n### Por que Bitcoin é importante?\n\nO Bitcoin representa a primeira solução ao **problema do duplo gasto** em dinheiro digital sem precisar de um intermediário confiável. Ele permite que pessoas enviem valor diretamente umas às outras em qualquer lugar do mundo, sem fronteiras e com taxas muito menores do que as transferências bancárias internacionais.\n\n### Resumo\n\n> Bitcoin é dinheiro para a internet: sem fronteiras, sem censura, sem permissão necessária."
+  }
+]
