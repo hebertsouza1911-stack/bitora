@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "bitcoin-guia-br",
-    "slug": "bitcoin-guia-br",
+    "name": "Bitora",
+    "slug": "bitora",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "bitcoinguiabr",
+    "scheme": "bitora",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
