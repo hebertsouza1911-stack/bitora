@@ -116,10 +116,11 @@ const styles = StyleSheet.create({
     paddingBottom: 48,
   },
   logo: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     width: LARGURA + 8,
     height: 52,
     marginBottom: 10,
+    backgroundColor: 'transparent',
   },
   subtitulo: {
     fontSize: 13,
