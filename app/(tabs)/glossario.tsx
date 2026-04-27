@@ -1,5 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '@/lib/theme';
+
 const termos = [
   { termo: 'Bitcoin (BTC)', definicao: 'Primeira criptomoeda descentralizada, criada em 2009 por Satoshi Nakamoto.' },
   { termo: 'Blockchain', definicao: 'Registro público e imutável de todas as transações Bitcoin, organizado em blocos encadeados.' },
@@ -34,24 +36,24 @@ export default function GlossarioScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
   },
   lista: {
     padding: 16,
     paddingBottom: 32,
   },
   item: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 10,
     padding: 14,
     marginBottom: 10,
     borderLeftWidth: 3,
-    borderLeftColor: '#F7931A',
+    borderLeftColor: colors.primary,
   },
   termo: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#F7931A',
+    color: colors.primary,
     marginBottom: 4,
   },
   definicao: {

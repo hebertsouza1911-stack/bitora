@@ -5,6 +5,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import AulaCard from '@/components/AulaCard';
 import aulasData from '@/content/aulas.json';
 import { buscarConcluidas } from '@/lib/storage';
+import { colors } from '@/lib/theme';
 
 type Aula = {
   id: string;
@@ -50,12 +51,12 @@ export default function AulasScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
     paddingHorizontal: 16,
     paddingTop: 16,
   },
   subtitulo: {
-    color: '#888',
+    color: colors.textMuted,
     fontSize: 13,
     marginBottom: 16,
   },

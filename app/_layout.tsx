@@ -34,7 +34,8 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      const timer = setTimeout(() => SplashScreen.hideAsync(), 2000);
+      return () => clearTimeout(timer);
     }
   }, [loaded]);
 
@@ -55,9 +56,9 @@ function RootLayoutNav() {
         <Stack.Screen
           name="aula/[id]"
           options={{
-            headerStyle: { backgroundColor: '#0D0D1A' },
+            headerStyle: { backgroundColor: '#0D1117' },
             headerTintColor: '#F7931A',
-            headerTitleStyle: { color: '#FFFFFF', fontWeight: '700' },
+            headerTitleStyle: { color: '#F5F5F5', fontWeight: '700' },
             title: 'Aula',
           }}
         />

@@ -1,9 +1,10 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import aulasData from '@/content/aulas.json';
 import { getAulasConcluidas, getProgressoCarteira } from '@/lib/storage';
+import { colors } from '@/lib/theme';
 
 const TOTAL_AULAS = aulasData.length;
 const TOTAL_PASSOS = 8;
@@ -33,7 +34,11 @@ export default function InicioScreen() {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.conteudo}>
-      <Text style={styles.saudacao}>Bem-vindo, bitcoiner! 👋</Text>
+      <Image
+        source={require('../../assets/branding/bitora-logo-horizontal-dark.png')}
+        style={styles.logo}
+        resizeMode="contain"
+      />
       <Text style={styles.subtitulo}>Acompanhe seu progresso abaixo.</Text>
 
       <View style={styles.card}>
@@ -104,25 +109,25 @@ export default function InicioScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
   },
   conteudo: {
     padding: 20,
     paddingBottom: 48,
   },
-  saudacao: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: '#FFFFFF',
-    marginBottom: 4,
+  logo: {
+    alignSelf: 'flex-start',
+    width: LARGURA + 8,
+    height: 52,
+    marginBottom: 10,
   },
   subtitulo: {
     fontSize: 13,
-    color: '#888',
+    color: colors.textMuted,
     marginBottom: 24,
   },
   card: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 14,
     padding: 16,
     marginBottom: 14,
@@ -136,16 +141,16 @@ const styles = StyleSheet.create({
   cardTitulo: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
   },
   cardContador: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#F7931A',
+    color: colors.primary,
   },
   barraFundo: {
     height: 8,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
     borderRadius: 4,
     overflow: 'hidden',
   },
@@ -154,13 +159,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   barraAulas: {
-    backgroundColor: '#F7931A',
+    backgroundColor: colors.primary,
   },
   barraCarteira: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: colors.success,
   },
   botaoContinuar: {
-    backgroundColor: '#F7931A',
+    backgroundColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -180,26 +185,26 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 28,
     borderWidth: 1,
-    borderColor: '#4CAF50',
+    borderColor: colors.success,
   },
   parabensTexto: {
     fontSize: 15,
-    color: '#4CAF50',
+    color: colors.success,
     fontWeight: '700',
   },
   sectionTitulo: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
     marginBottom: 12,
   },
   dica: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 10,
     padding: 14,
     marginBottom: 10,
     borderLeftWidth: 3,
-    borderLeftColor: '#F7931A',
+    borderLeftColor: colors.primary,
   },
   dicaTexto: {
     fontSize: 13,

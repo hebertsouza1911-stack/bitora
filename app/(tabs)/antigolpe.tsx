@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import { colors } from '@/lib/theme';
+
 const GOLPES = [
   {
     icone: '💰',
@@ -125,7 +127,7 @@ export default function AntiGolpeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
   },
   conteudo: {
     padding: 16,
@@ -134,25 +136,25 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: colors.text,
     marginBottom: 8,
   },
   subtitulo: {
     fontSize: 13,
-    color: '#888',
+    color: colors.textMuted,
     lineHeight: 19,
     marginBottom: 20,
   },
   card: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 14,
     marginBottom: 10,
     borderLeftWidth: 3,
-    borderLeftColor: '#CC3333',
+    borderLeftColor: colors.danger,
   },
   cardExpandido: {
-    borderLeftColor: '#F7931A',
+    borderLeftColor: colors.primary,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
   cardTitulo: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FF6060',
+    color: colors.danger,
     marginBottom: 3,
     lineHeight: 20,
   },
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
   legendaExemplo: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#FF6060',
+    color: colors.danger,
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: 6,
@@ -215,7 +217,7 @@ const styles = StyleSheet.create({
   legendaProtecao: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#4CAF50',
+    color: colors.success,
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: 6,

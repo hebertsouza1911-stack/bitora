@@ -5,6 +5,7 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import Quiz, { Pergunta } from '@/components/Quiz';
 import aulasData from '@/content/aulas.json';
 import { isAulaConcluida, marcarAulaConcluida } from '@/lib/storage';
+import { colors } from '@/lib/theme';
 
 type Aula = {
   id: string;
@@ -138,7 +139,7 @@ export default function AulaDetalheScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
   },
   conteudo: {
     padding: 20,
@@ -152,25 +153,25 @@ const styles = StyleSheet.create({
   },
   duracao: {
     fontSize: 13,
-    color: '#F7931A',
+    color: colors.primary,
     fontWeight: '600',
   },
   badgeConcluida: {
     fontSize: 13,
-    color: '#4CAF50',
+    color: colors.success,
     fontWeight: '600',
   },
   h2: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
     marginBottom: 8,
     marginTop: 16,
   },
   h3: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#F7931A',
+    color: colors.primary,
     marginBottom: 6,
     marginTop: 14,
   },
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
   },
   liItem: {
     flexDirection: 'row',
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
   },
   liPonto: {
-    color: '#F7931A',
+    color: colors.primary,
     fontSize: 15,
     marginRight: 8,
     lineHeight: 24,
@@ -203,10 +204,10 @@ const styles = StyleSheet.create({
   },
   blockquote: {
     borderLeftWidth: 3,
-    borderLeftColor: '#F7931A',
+    borderLeftColor: colors.primary,
     paddingLeft: 12,
     marginVertical: 12,
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 4,
     paddingVertical: 10,
     paddingRight: 8,
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
   },
   botao: {
     marginTop: 32,
-    backgroundColor: '#F7931A',
+    backgroundColor: colors.primary,
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: 'center',
@@ -238,35 +239,35 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,
-    borderColor: '#4CAF50',
+    borderColor: colors.success,
     alignItems: 'center',
   },
   concluidaTexto: {
     fontSize: 14,
-    color: '#4CAF50',
+    color: colors.success,
     fontWeight: '600',
   },
   erro: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
   erroTexto: {
-    color: '#888',
+    color: colors.textMuted,
     fontSize: 16,
   },
   tempoTag: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 20,
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderWidth: 1,
-    borderColor: '#F7931A',
+    borderColor: colors.primary,
   },
   tempoTexto: {
     fontSize: 12,
-    color: '#F7931A',
+    color: colors.primary,
     fontWeight: '600',
   },
   concluidaTag: {
@@ -275,11 +276,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderWidth: 1,
-    borderColor: '#4CAF50',
+    borderColor: colors.success,
   },
   concluidaTagTexto: {
     fontSize: 12,
-    color: '#4CAF50',
+    color: colors.success,
     fontWeight: '700',
   },
   botaoVoltar: {
@@ -289,7 +290,7 @@ const styles = StyleSheet.create({
   },
   botaoVoltarTexto: {
     fontSize: 14,
-    color: '#888',
+    color: colors.textMuted,
     fontWeight: '600',
   },
 });

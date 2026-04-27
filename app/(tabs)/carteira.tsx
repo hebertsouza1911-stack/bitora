@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { getProgressoCarteira, setProgressoCarteira } from '@/lib/storage';
+import { colors } from '@/lib/theme';
 
 const LARGURA_BARRA = Dimensions.get('window').width - 40;
 
@@ -73,7 +74,6 @@ export default function CarteiraScreen() {
         Siga os 8 passos para configurar sua hardware wallet com segurança.
       </Text>
 
-      {/* Barra de progresso */}
       <View style={styles.progressoContainer}>
         <View style={styles.progressoHeader}>
           <Text style={styles.progressoTexto}>{concluidos} de {PASSOS.length} concluídos</Text>
@@ -93,7 +93,6 @@ export default function CarteiraScreen() {
         </View>
       )}
 
-      {/* Lista de passos */}
       {PASSOS.map((passo, idx) => (
         <TouchableOpacity
           key={idx}
@@ -125,7 +124,7 @@ export default function CarteiraScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0D0D1A',
+    backgroundColor: colors.background,
   },
   conteudo: {
     padding: 20,
@@ -134,12 +133,12 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: colors.text,
     marginBottom: 6,
   },
   subtitulo: {
     fontSize: 14,
-    color: '#888',
+    color: colors.textMuted,
     lineHeight: 20,
     marginBottom: 24,
   },
@@ -158,17 +157,17 @@ const styles = StyleSheet.create({
   progressoPorcentagem: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#F7931A',
+    color: colors.primary,
   },
   progressoBarra: {
     height: 8,
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 4,
     overflow: 'hidden',
   },
   progressoPreenchimento: {
     height: 8,
-    backgroundColor: '#F7931A',
+    backgroundColor: colors.primary,
     borderRadius: 4,
   },
   parabens: {
@@ -177,13 +176,13 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#4CAF50',
+    borderColor: colors.success,
     alignItems: 'center',
   },
   parabensTitulo: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#4CAF50',
+    color: colors.success,
     marginBottom: 4,
   },
   parabensTexto: {
@@ -192,7 +191,7 @@ const styles = StyleSheet.create({
   },
   passo: {
     flexDirection: 'row',
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 14,
     marginBottom: 12,
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
     height: 26,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#F7931A',
+    borderColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 14,
@@ -217,13 +216,13 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   checkboxMarcado: {
-    backgroundColor: '#4CAF50',
-    borderColor: '#4CAF50',
+    backgroundColor: colors.success,
+    borderColor: colors.success,
   },
   checkmark: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: colors.text,
   },
   passoConteudo: {
     flex: 1,
@@ -231,7 +230,7 @@ const styles = StyleSheet.create({
   passoNumero: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#F7931A',
+    color: colors.primary,
     textTransform: 'uppercase',
     letterSpacing: 0.8,
     marginBottom: 3,
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
   passoTitulo: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
     marginBottom: 6,
     lineHeight: 20,
   },
@@ -257,7 +256,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     borderLeftWidth: 3,
-    borderLeftColor: '#F44336',
+    borderLeftColor: colors.danger,
   },
   alertaTexto: {
     fontSize: 12,

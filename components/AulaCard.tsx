@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import { colors } from '@/lib/theme';
+
 type Props = {
   titulo: string;
   descricao: string;
@@ -34,15 +36,15 @@ export default function AulaCard({ titulo, descricao, duracao, concluida = false
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#1A1A2E',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     borderLeftWidth: 4,
-    borderLeftColor: '#F7931A',
+    borderLeftColor: colors.primary,
   },
   cardConcluida: {
-    borderLeftColor: '#4CAF50',
+    borderLeftColor: colors.success,
   },
   header: {
     flexDirection: 'row',
@@ -54,12 +56,12 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.text,
     flex: 1,
     lineHeight: 22,
   },
   checkBadge: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: colors.success,
     borderRadius: 14,
     width: 26,
     height: 26,
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
   },
   checkTexto: {
     fontSize: 13,
-    color: '#FFFFFF',
+    color: colors.text,
     fontWeight: '800',
   },
   descricao: {
@@ -85,12 +87,12 @@ const styles = StyleSheet.create({
   },
   duracao: {
     fontSize: 12,
-    color: '#F7931A',
+    color: colors.primary,
     fontWeight: '600',
   },
   concluidaLabel: {
     fontSize: 11,
-    color: '#4CAF50',
+    color: colors.success,
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 0.5,

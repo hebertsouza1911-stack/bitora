@@ -4,22 +4,22 @@
     "slug": "bitora",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/branding/bitora-icon.png",
     "scheme": "bitora",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/branding/bitora-logo-horizontal-dark.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0D1117"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/branding/bitora-icon.png",
+        "backgroundColor": "#0D1117"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
