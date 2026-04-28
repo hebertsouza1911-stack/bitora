@@ -1,10 +1,12 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import PaywallModal from '@/components/PaywallModal';
 import Quiz, { Pergunta } from '@/components/Quiz';
 import aulasData from '@/content/aulas.json';
-import { isAulaConcluida, marcarAulaConcluida } from '@/lib/storage';
+import { getAulasConcluidas, isAulaConcluida, marcarAulaConcluida } from '@/lib/storage';
 import { colors } from '@/lib/theme';
 
 type Aula = {
@@ -75,6 +77,7 @@ export default function AulaDetalheScreen() {
   const navigation = useNavigation();
   const router = useRouter();
   const [concluida, setConcluida] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
 
   const aula = (aulasData as Aula[]).find((a) => a.id === id);
 
@@ -96,6 +99,17 @@ export default function AulaDetalheScreen() {
   async function handleMarcarConcluida() {
     await marcarAulaConcluida(aula!.id);
     setConcluida(true);
+    checkPaywallTrigger();
+  }
+
+  async function checkPaywallTrigger() {
+    const flag = await AsyncStorage.getItem('@bitora:paywall_shown_after_3rd');
+    if (flag) return;
+    const concluidas = await getAulasConcluidas();
+    if (concluidas.length >= 3) {
+      await AsyncStorage.setItem('@bitora:paywall_shown_after_3rd', 'true');
+      setShowPaywall(true);
+    }
   }
 
   function handleQuizConcluido(acertos: number) {
@@ -132,6 +146,8 @@ export default function AulaDetalheScreen() {
       <TouchableOpacity style={styles.botaoVoltar} onPress={() => router.back()} activeOpacity={0.7}>
         <Text style={styles.botaoVoltarTexto}>← Voltar à lista de aulas</Text>
       </TouchableOpacity>
+
+      <PaywallModal visible={showPaywall} onClose={() => setShowPaywall(false)} />
     </ScrollView>
   );
 }

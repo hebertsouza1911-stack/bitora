@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import AulaCard from '@/components/AulaCard';
+import PremiumLock from '@/components/PremiumLock';
 import aulasData from '@/content/aulas.json';
 import { buscarConcluidas } from '@/lib/storage';
 import { colors } from '@/lib/theme';
@@ -34,14 +35,16 @@ export default function AulasScreen() {
         data={aulas}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.lista}
-        renderItem={({ item }) => (
-          <AulaCard
-            titulo={item.titulo}
-            descricao={item.descricao}
-            duracao={item.duracao}
-            concluida={concluidas.includes(item.id)}
-            onPress={() => router.push(`/aula/${item.id}`)}
-          />
+        renderItem={({ item, index }) => (
+          <PremiumLock active={index >= 3}>
+            <AulaCard
+              titulo={item.titulo}
+              descricao={item.descricao}
+              duracao={item.duracao}
+              concluida={concluidas.includes(item.id)}
+              onPress={() => router.push(`/aula/${item.id}`)}
+            />
+          </PremiumLock>
         )}
       />
     </View>

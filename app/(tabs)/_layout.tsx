@@ -39,21 +39,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="meubitcoin"
         options={{
-          title: 'Meu Bitcoin',
+          title: 'Bitcoin',
           tabBarIcon: ({ color }) => <TabBarIcon name="btc" color={color} />,
         }}
       />
       <Tabs.Screen
         name="carteira"
         options={{
-          title: 'Carteira Fria',
+          title: 'Carteira',
           tabBarIcon: ({ color }) => <TabBarIcon name="shield" color={color} />,
         }}
       />
       <Tabs.Screen
         name="antigolpe"
         options={{
-          title: 'Anti-Golpe',
+          title: 'Golpes',
           tabBarIcon: ({ color }) => <TabBarIcon name="exclamation-triangle" color={color} />,
         }}
       />
@@ -62,6 +62,13 @@ export default function TabLayout() {
         options={{
           title: 'Glossário',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="conta"
+        options={{
+          title: 'Conta',
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </Tabs>

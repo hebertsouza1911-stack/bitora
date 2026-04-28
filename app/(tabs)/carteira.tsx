@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import PremiumLock from '@/components/PremiumLock';
 import { getProgressoCarteira, setProgressoCarteira } from '@/lib/storage';
 import { colors } from '@/lib/theme';
 
@@ -94,8 +95,8 @@ export default function CarteiraScreen() {
       )}
 
       {PASSOS.map((passo, idx) => (
+        <PremiumLock key={idx} active={idx >= 4} borderRadius={12}>
         <TouchableOpacity
-          key={idx}
           style={[styles.passo, progresso[idx] && styles.passoConcluido]}
           onPress={() => togglePasso(idx)}
           activeOpacity={0.8}
@@ -116,6 +117,7 @@ export default function CarteiraScreen() {
             )}
           </View>
         </TouchableOpacity>
+        </PremiumLock>
       ))}
     </ScrollView>
   );

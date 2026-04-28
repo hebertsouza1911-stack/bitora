@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+import PremiumLock from '@/components/PremiumLock';
 import { colors } from '@/lib/theme';
 
 const GOLPES = [
@@ -91,8 +92,8 @@ export default function AntiGolpeScreen() {
       </Text>
 
       {GOLPES.map((golpe, idx) => (
+        <PremiumLock key={idx} active={idx >= 3} borderRadius={12}>
         <TouchableOpacity
-          key={idx}
           style={[styles.card, expandido === idx && styles.cardExpandido]}
           onPress={() => toggle(idx)}
           activeOpacity={0.85}
@@ -119,6 +120,7 @@ export default function AntiGolpeScreen() {
             </View>
           )}
         </TouchableOpacity>
+        </PremiumLock>
       ))}
     </ScrollView>
   );

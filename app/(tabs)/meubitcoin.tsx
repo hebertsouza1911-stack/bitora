@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Dimensions,
-  Modal,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,6 +12,7 @@ import {
 } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 
+import PaywallModal from '@/components/PaywallModal';
 import {
   BitcoinPriceData,
   downsample,
@@ -49,7 +49,7 @@ export default function MeuBitcoinScreen() {
   // ─── Alerta ───────────────────────────────────────────────────────────────
   const [alertPrice, setAlertPrice] = useState<number | null>(null);
   const [alertInput, setAlertInput] = useState('');
-  const [showUpgrade, setShowUpgrade] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
 
   // ─── Efeitos ──────────────────────────────────────────────────────────────
 
@@ -127,7 +127,7 @@ export default function MeuBitcoinScreen() {
   // ─── Alerta ───────────────────────────────────────────────────────────────
 
   async function createAlert() {
-    if (alertPrice !== null) { setShowUpgrade(true); return; }
+    if (alertPrice !== null) { setShowPaywall(true); return; }
     const num = parseFloat(alertInput.replace(/\./g, '').replace(',', '.'));
     if (isNaN(num) || num <= 0) return;
     await AsyncStorage.setItem('alerta_btc', String(num));
@@ -342,28 +342,7 @@ export default function MeuBitcoinScreen() {
         )}
       </View>
 
-      {/* ── Modal: Upgrade ───────────────────────────────────────────────── */}
-      <Modal
-        visible={showUpgrade}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setShowUpgrade(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalBox}>
-            <Text style={styles.modalTitulo}>Versão gratuita</Text>
-            <Text style={styles.modalTexto}>
-              A versão grátis permite 1 alerta de preço. Faça upgrade para alertas ilimitados.
-            </Text>
-            <TouchableOpacity style={styles.modalUpgrade} onPress={() => setShowUpgrade(false)}>
-              <Text style={styles.modalUpgradeTexto}>Fazer Upgrade</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setShowUpgrade(false)}>
-              <Text style={styles.modalFechar}>Fechar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+      <PaywallModal visible={showPaywall} onClose={() => setShowPaywall(false)} />
     </ScrollView>
   );
 }
@@ -530,45 +509,4 @@ const styles = StyleSheet.create({
   },
   alertaCriarTexto: { fontSize: 15, fontWeight: '700', color: '#000' },
 
-  // ── Modal ──────────────────────────────────────────────────────────────────
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.72)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
-  },
-  modalBox: {
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 24,
-    width: '100%',
-  },
-  modalTitulo: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: colors.text,
-    marginBottom: 10,
-  },
-  modalTexto: {
-    fontSize: 14,
-    color: '#C0C0D0',
-    lineHeight: 21,
-    marginBottom: 20,
-  },
-  modalUpgrade: {
-    backgroundColor: colors.primary,
-    borderRadius: 10,
-    paddingVertical: 13,
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  modalUpgradeTexto: { fontSize: 15, fontWeight: '700', color: '#000' },
-  modalFechar: {
-    textAlign: 'center',
-    fontSize: 14,
-    color: colors.textMuted,
-    fontWeight: '600',
-    paddingVertical: 4,
-  },
 });
