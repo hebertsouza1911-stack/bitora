@@ -37,6 +37,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="meubitcoin"
+        options={{
+          title: 'Meu Bitcoin',
+          tabBarIcon: ({ color }) => <TabBarIcon name="btc" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="carteira"
         options={{
           title: 'Carteira Fria',

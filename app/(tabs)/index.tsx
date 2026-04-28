@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import aulasData from '@/content/aulas.json';
+import { formatBRL, getBitcoinPrice } from '@/lib/bitcoin-price';
 import { getAulasConcluidas, getProgressoCarteira } from '@/lib/storage';
 import { colors } from '@/lib/theme';
 
@@ -14,11 +15,16 @@ export default function InicioScreen() {
   const router = useRouter();
   const [aulasConcluidas, setAulasConcluidas] = useState<string[]>([]);
   const [passosCarteira, setPassosCarteira] = useState<boolean[]>(Array(TOTAL_PASSOS).fill(false));
+  const [btcPrice, setBtcPrice] = useState<number | null>(null);
+  const [btcChange, setBtcChange] = useState<number | null>(null);
 
   useFocusEffect(
     useCallback(() => {
       getAulasConcluidas().then(setAulasConcluidas);
       getProgressoCarteira().then(setPassosCarteira);
+      getBitcoinPrice()
+        .then((d) => { setBtcPrice(d.brl); setBtcChange(d.brl_24h_change); })
+        .catch(() => {});
     }, [])
   );
 
@@ -40,6 +46,22 @@ export default function InicioScreen() {
         resizeMode="contain"
       />
       <Text style={styles.subtitulo}>Acompanhe seu progresso abaixo.</Text>
+
+      {btcPrice !== null && (
+        <TouchableOpacity
+          style={styles.btcCard}
+          onPress={() => router.push('/(tabs)/meubitcoin' as any)}
+          activeOpacity={0.85}
+        >
+          <View>
+            <Text style={styles.btcLabel}>Bitcoin (BTC)</Text>
+            <Text style={styles.btcPreco}>{formatBRL(btcPrice)}</Text>
+          </View>
+          <Text style={[styles.btcVariacao, { color: (btcChange ?? 0) >= 0 ? colors.success : colors.danger }]}>
+            {(btcChange ?? 0) >= 0 ? '↑' : '↓'} {Math.abs(btcChange ?? 0).toFixed(2).replace('.', ',')}%
+          </Text>
+        </TouchableOpacity>
+      )}
 
       <View style={styles.card}>
         <View style={styles.cardHeader}>
@@ -211,5 +233,33 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#C0C0D0',
     lineHeight: 19,
+  },
+  btcCard: {
+    backgroundColor: colors.surface,
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderLeftWidth: 3,
+    borderLeftColor: colors.primary,
+  },
+  btcLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: colors.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: 4,
+  },
+  btcPreco: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: colors.text,
+  },
+  btcVariacao: {
+    fontSize: 15,
+    fontWeight: '700',
   },
 });
